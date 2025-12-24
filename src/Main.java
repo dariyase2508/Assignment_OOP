@@ -4,7 +4,7 @@ public class Main {
         System.out.println("Portal:");
         newPortal.printPortal();
 
-        JobListing job1 = new JobListing("Java Developer");
+        JobListing job1 = new JobListing("C++ Developer");
         JobListing job2 = new JobListing("Web Designer");
 
         System.out.println("\n List of jobs");
