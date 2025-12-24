@@ -9,7 +9,7 @@ public class JobListing {
     }
 
     public void getInfo() {
-        System.out.println("Вакансия ID: " + jobId + ", Название: " + title);
+        System.out.println("Vacancy ID: " + jobId + ", Name: " + title);
     }
 
     public int getJobId() {

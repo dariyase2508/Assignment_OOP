@@ -11,7 +11,7 @@ public class Portal {
     }
 
     public void printPortal() {
-        System.out.println("Портал ID: " + id + ", Название: " + portalName + ", URL: " + url);
+        System.out.println("ID: " + id + ", Name: " + portalName + ", URL: " + url);
     }
 
     public int getId() {
