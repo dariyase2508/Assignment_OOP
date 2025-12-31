@@ -1,24 +1,45 @@
-public class Freelancer {
+public class Freelancer extends User {
     private static int counter = 1;
     private int id;
-    private String name;
     private String skill;
 
     public Freelancer(String name, String skill) {
+        super(name);
         this.id = counter++;
-        this.name = name;
         this.skill = skill;
     }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public int getId() {
+        return id;
+    }
 
-    public String getSkill() { return skill; }
-    public void setSkill(String skill) { this.skill = skill; }
+    public String getSkill() {
+        return skill;
+    }
 
-    public int getId() { return id; }
+    public void setSkill(String skill) {
+        this.skill = skill;
+    }
 
-    public void printFreelancer() {
-        System.out.println("Фрилансер ID: " + id + ", Имя: " + name + ", Навык: " + skill);
+    @Override
+    public void printInfo() {
+        System.out.println(toString());
+    }
+
+    @Override
+    public String toString() {
+        return "Freelancer{id=" + id + ", name='" + name + "', skill='" + skill + "'}";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!super.equals(o)) return false;
+        Freelancer that = (Freelancer) o;
+        return id == that.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
     }
 }

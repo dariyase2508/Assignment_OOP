@@ -1,36 +1,40 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 public class Portal {
-    private static int counter = 1;
-    private int id;
-    private String portalName;
-    private String url;
+    private String name;
+    private List<JobListing> jobs = new ArrayList<>();
 
-    public Portal(String portalName, String url) {
-        this.id = counter++;
-        this.portalName = portalName;
-        this.url = url;
+    public Portal(String name) {
+        this.name = name;
     }
 
-    public void printPortal() {
-        System.out.println("ID: " + id + ", Name: " + portalName + ", URL: " + url);
+    public void publishJob(JobListing job) {
+        jobs.add(job);
     }
 
-    public int getId() {
-        return id;
+    public void showJobs() {
+        for (JobListing job : jobs) {
+            System.out.println(job);
+        }
     }
 
-    public String getPortalName() {
-        return portalName;
+    public void searchJobs(String keyword) {
+        for (JobListing job : jobs) {
+            if (job.getTitle().toLowerCase().contains(keyword.toLowerCase())) {
+                System.out.println(job);
+            }
+        }
     }
 
-    public String getUrl() {
-        return url;
+    public void sortJobsByTitle() {
+        Collections.sort(jobs, Comparator.comparing(JobListing::getTitle));
     }
 
-    public void setPortalName(String portalName) {
-        this.portalName = portalName;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
+    @Override
+    public String toString() {
+        return "Portal{name='" + name + "', jobs=" + jobs.size() + "}";
     }
 }

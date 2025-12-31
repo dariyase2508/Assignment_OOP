@@ -1,26 +1,36 @@
 public class JobListing {
     private static int counter = 1;
-    private int jobId;
+    private int id;
     private String title;
 
     public JobListing(String title) {
-        this.jobId = counter++;
+        this.id = counter++;
         this.title = title;
     }
 
-    public void getInfo() {
-        System.out.println("Vacancy ID: " + jobId + ", Name: " + title);
-    }
-
-    public int getJobId() {
-        return jobId;
+    public int getId() {
+        return id;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    @Override
+    public String toString() {
+        return "JobListing{id=" + id + ", title='" + title + "'}";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        JobListing job = (JobListing) o;
+        return id == job.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
     }
 }
