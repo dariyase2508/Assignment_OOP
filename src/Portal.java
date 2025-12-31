@@ -38,3 +38,4 @@ public class Portal {
         return "Portal{name='" + name + "', jobs=" + jobs.size() + "}";
     }
 }
+//assignment 2
