@@ -29,4 +29,3 @@ public abstract class User {
         return name.hashCode();
     }
 }
-//assignment 2

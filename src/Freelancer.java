@@ -43,4 +43,3 @@ public class Freelancer extends User {
         return id;
     }
 }
-//assignment 2
