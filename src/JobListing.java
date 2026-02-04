@@ -1,14 +1,22 @@
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "job_listings")
 public class JobListing {
-    private static int counter = 1;
-    private int id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String title;
 
+    public JobListing() {}
+
     public JobListing(String title) {
-        this.id = counter++;
         this.title = title;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -16,21 +24,12 @@ public class JobListing {
         return title;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     @Override
     public String toString() {
         return "JobListing{id=" + id + ", title='" + title + "'}";
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        JobListing job = (JobListing) o;
-        return id == job.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return id;
     }
 }
